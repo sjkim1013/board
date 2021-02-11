@@ -11,4 +11,17 @@
 		from tbl_board
 	</select>
 
+	<!-- 게시물 작성 -->
+	<insert id="write" parameterType="com.board.domain.BoardVO">
+		INSERT INTO tbl_board (
+			title,
+			content,
+			writer
+		) VALUE (
+			#{title},
+			#{content},
+			#{writer}
+		)
+	</insert>
+
 </mapper>
