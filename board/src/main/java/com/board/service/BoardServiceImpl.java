@@ -22,6 +22,18 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
+	public List<BoardVO> listPage(int displayPost, int postNum) throws Exception {
+		
+		return dao.listPage(displayPost, postNum);
+	}
+
+	@Override
+	public int count() throws Exception {
+		
+		return dao.count();
+	}
+
+	@Override
 	public void write(BoardVO vo) throws Exception {
 		
 		dao.write(vo);
