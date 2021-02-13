@@ -42,5 +42,12 @@
 		where 1=1
 		and bno = #{bno}
 	</update>
+	
+	<!-- 게시물 삭제 -->
+	<delete id="delete" parameterType="int">
+		delete from tbl_board 
+		where 1=1
+		and bno = #{bno}
+	</delete>
 
 </mapper>

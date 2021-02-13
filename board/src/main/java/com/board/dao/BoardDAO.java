@@ -17,5 +17,8 @@ public interface BoardDAO {
 	
 	// 게시글 수정
 	public void modify(BoardVO vo) throws Exception;
+	
+	// 게시글 삭제
+	public void delete(int bno) throws Exception;
 
 }
