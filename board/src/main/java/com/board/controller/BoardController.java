@@ -39,11 +39,39 @@ public class BoardController {
 		int pageNum = (int)Math.ceil((double)count/postNum); // 총 페이지 수
 		int displayPost = (num - 1) * postNum; // 출력할 페이지
 		
+		int pageNum_cnt = 10; // 한번에 표시할 페이징 번호 갯수
+		// 표시되는 마지막 페이지 번호
+		int endPageNum = (int)(Math.ceil((double)num/(double)pageNum_cnt) * pageNum_cnt);
+		// 표시되는 첫 페이지 번호
+		int startPageNum = endPageNum - (pageNum_cnt - 1);
+		
+		// 마지막 페이지 번호 재계산
+		int endPageNum_tmp = (int)(Math.ceil((double)count/(double)postNum));
+		
+		if(endPageNum > endPageNum_tmp) {
+			endPageNum = endPageNum_tmp;
+		}
+		
+		boolean prev = startPageNum == 1 ? false : true;
+		boolean next = endPageNum == endPageNum_tmp ? false : true;
+		
 		List<BoardVO> list = null;
 		list = service.listPage(displayPost, postNum);
 		
 		model.addAttribute("list", list);
 		model.addAttribute("pageNum", pageNum);
+		
+		// 시작 및 끝 번호
+		model.addAttribute("startPageNum", startPageNum);
+		model.addAttribute("endPageNum", endPageNum);
+		
+		// 이전 및 다음
+		model.addAttribute("prev", prev);
+		model.addAttribute("next", next);
+		
+		// 현재 페이지
+		model.addAttribute("select", num);
+		
 	}
 	
 	// 게시물 작성
