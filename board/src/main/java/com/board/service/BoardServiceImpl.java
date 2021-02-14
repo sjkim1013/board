@@ -28,6 +28,18 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
+	public List<BoardVO> listPageSearch(int displayPost, int postNum, String searchType, String keyword) throws Exception {
+		
+		return dao.listPageSearch(displayPost, postNum, searchType, keyword);
+	}
+
+	@Override
+	public int searchCount(String searchType, String keyword) throws Exception {
+		
+		return dao.searchCount(searchType, keyword);
+	}
+
+	@Override
 	public int count() throws Exception {
 		
 		return dao.count();

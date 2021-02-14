@@ -101,4 +101,35 @@ public class Page {
 		next = endPageNum == endPageNum_tmp ? false : true;
 		
 	}
+	
+	// 검색 타입과 검색어	
+	private String searchType;
+	private String keyword;
+	
+
+	public void setSearchType(String searchType) {
+		this.searchType = searchType;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	
+	public String getSearchType() {
+		return searchType;
+	}
+	
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public String getSearchTypeKeyword() {
+		
+		if(searchType.equals("") || keyword.equals("")) {
+			return "";
+		}else {
+			return "&searchType=" + searchType + "&keyword=" + keyword;
+		}
+		
+	}
 }
